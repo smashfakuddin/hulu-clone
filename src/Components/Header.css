@@ -46,6 +46,7 @@
 .header>img {
     object-fit: contain;
     height: 80px;
+    cursor: pointer;
 }
 /* // for scroolbar */
 ::-webkit-scrollbar {
