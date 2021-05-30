@@ -1,11 +1,11 @@
-require('dotenv').config();
 
-const API_KEY = process.env.API_KEY;
+require('dotenv').config()
+
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 
-console.log(API_KEY);
 export default {
-    fetchTending: `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`,
+    fetchTrending: `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`,
     fetchTopRated: `https://api.themoviedb.org/3/trending/movie/top_rated?api_key=${API_KEY}`,
     fetchActionMovies: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=28`,
     fetchComedyMovies: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=35`,

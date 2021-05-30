@@ -1,17 +1,33 @@
-import React from 'react';
+import { ThumbUpSharp } from '@material-ui/icons';
+import React, { forwardRef } from 'react';
+import TextTruncate from 'react-text-truncate';
 import './VideoCard.css';
 
-const VideoCard = () => {
+const base_url = 'https://image.tmdb.org/t/p/original/';
+
+const VideoCard = forwardRef(({ movie }, ref) => {
+
     return (
-        <div className='videoCard'>
-            <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/284832/settings_images/a3liO9nUSCyEhyiAnDOw_Profit-with-JavaScript-new.jpg" alt=""
+        <div ref={ref} className='videoCard'>
+            <img src={`${base_url}${movie.backdrop_path || movie.poster_path}`} alt=""
             />
-            <p>Movie description bla bla bal</p>
-            <h2>Movie title</h2>
-            <p>Number of like............</p>
+            <TextTruncate
+                line={1}
+                element="p"
+                truncateText="...."
+                text={movie.overview}
+
+            />
+            <h2>{movie.title || movie.original_name}</h2>
+            <p className='videoCard__stats'>
+                {movie.media_type && `${movie.media_type}`}
+                {movie.release_date || movie.first_air_date}.{" "}
+                <ThumbUpSharp />{'  '}
+                {movie.vote_count}
+            </p>
             <p></p>
         </div>
     );
-};
+});
 
 export default VideoCard;
