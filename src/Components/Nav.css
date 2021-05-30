@@ -11,6 +11,7 @@
     font-weight: 500;
     opacity: 0.7;
     transition: transform 50ms ease-out;
+    font-size: 18px;
     /* font-size: 25px; */
 }
 .nav > h2:hover{
